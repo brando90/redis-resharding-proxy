@@ -129,6 +129,7 @@ func masterConnection(slavechannel chan<- []byte, masterchannel <-chan []byte) {
 
 	for {
 		command, err := readRedisCommand(reader)
+		fmt.Printf("command: %+v\n", command)
 		if err != nil {
 			log.Printf("Error while reading from master: %v\n", err)
 			return
